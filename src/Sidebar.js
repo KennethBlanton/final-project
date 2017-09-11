@@ -34,15 +34,15 @@ class Sidebar extends Component {
       <div className="Sidebar">
         <figure className="logo"></figure>
         <nav className="NavLinkContainer">
-          <NavLink className="NavLink" to='./'>Home</NavLink>
+          <NavLink className="NavLink" to='./'>All Images</NavLink>
           <NavLink className="NavLink" to="./CategoryPage">Categories</NavLink>
-          <NavLink className="NavLink" to="./ImageCollection">All Images</NavLink>
-          <NavLink className="NavLink" to={ loggedInOption }>{ loginLinkText }</NavLink>
-          <NavLink className="NavLink" to="./Register">Register</NavLink>
+          <NavLink className="NavLink" to="./ImageCollection">Temp</NavLink>
+          <NavLink className="NavLink" to="./LoginPage">Login</NavLink>
+          <NavLink className="NavLink" to="./RegisterPage">Register</NavLink>
         </nav>
       </div>
     );
   }
 }
-
+// <NavLink className="NavLink" to={ loggedInOption }>{ loginLinkText }</NavLink>
 export default Sidebar;

@@ -7,21 +7,18 @@ import Login from './Login';
 import Register from './Register';
 import CategoryPage from "./CategoryPage";
 import GalleryPage from './GalleryPage';
+import ImageDetail from './ImageDetail';
 
 
 export default class App extends Component {
 
-  constructor (probs) {
-    super(probs);
+  // constructor (probs) {
+  //   super(probs);
+  // }
 
-    this.state = {
-      images: [],
-    }
-  }
-
-  componentDidMount () {
+  // componentDidMount () {
    
-  } 
+  // } 
 
   render() {
     return (
@@ -34,6 +31,8 @@ export default class App extends Component {
             <Route path="/~michele.james/build/LoginPage" component={ Login } />
             <Route path="/~michele.james/build/RegisterPage" component={ Register } />
             <Route path="/~michele.james/build/CategoryPage" component={ CategoryPage } />
+            <Route path="/~michele.james/build/Detail" component={ ImageDetail } />
+
           </Switch>
          </div>
       </BrowserRouter>

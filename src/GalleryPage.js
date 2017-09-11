@@ -5,16 +5,16 @@ export default class GalleryPage extends Component {
 	constructor(props) {
 		super(props);
 
-        var tempJSON = JSON.parse('[{"id":"60","title":"farm","description":"farm","imagelink":"\/home\/michele.james\/public_html\/build\/php\/user_uploads\/farm-tractor.jpeg","thumblink":null,"username":"test@test.com","score":"0","date":"2017-09-10 01:48:14","category":"cat"},{"id":"61","title":"home","description":"home","imagelink":"\/home\/michele.james\/public_html\/build\/php\/user_uploads\/home.png","thumblink":null,"username":"test@test.com","score":"0","date":"2017-09-10 01:48:34","category":"dog"}]');
+
 
 		this.state = {
 			test: 'hi',
-			data: tempJSON,
+			data: ['temps'],
 		}
 	}
 
-	componentDidMount() {
- 		fetch('http://circuslabs.net/~michele.james/build/php/handle_fetch.php?type=categoryPage',{
+  componentDidMount() {
+ 	fetch('http://circuslabs.net/~michele.james/build/php/handle_fetch.php?type=gallery',{
 
             method: 'GET',
             headers: {
@@ -23,17 +23,14 @@ export default class GalleryPage extends Component {
             },
         })
         .then( response => response.json())
-        .then(json => {
-        	console.log(JSON.parse(json));
-        	console.log('check');
-        	var newJSON = JSON.parse(json);
-        	
-        })
-        	// console.log(tempJSON);
-        	// this.setState({
-        	// 	data: tempJSON,
-        	// })
-	}
+        .then(json => (
+        
+           this.setState({
+            data:json,
+           })
+          
+        ));
+  }
 
 
 

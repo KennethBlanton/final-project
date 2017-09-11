@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
+import Gallery from './Gallery';
 
 class ImageDetail extends Component {
 
-  // constructor (probs) {
-  //   super(probs);
-  // }
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      images: []
+    }
+  }
 
   componentDidMount () {
-    fetch('http://circuslabs.net/~ryan.rodd/php/project16/api/?data=allimages')
-      .then(response => {
-        console.log("response", response);
-        return response.json();
-      })
-      .then(data => {
-        this.setState({
-          images: data
-      })
-    })
+    fetch('http://circuslabs.net/~michele.james/build/php/handle_fetch.php?type=gallery',{
+
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                 'Accept': 'application/json',
+            },
+        })
+        .then( response => response.json())
+        .then(json => (
+        
+           this.setState({
+            data:json,
+           })
+          
+        ));
   } 
 
 
@@ -27,8 +38,11 @@ class ImageDetail extends Component {
 
     return (
       <div className = "image-detail">
-      	IMAGE DETAIL
 
+      <ul>
+        {this.state.data.map(item =>
+              <Gallery key={item.id} {...item} />)}
+      </ul>
 
       </div>
 
